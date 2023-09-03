@@ -1,0 +1,25 @@
+{
+    "authors": [
+        {
+            "name": "Saranya Raj",
+            "email": "saranyarajtr@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "CardGame\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+
+}
