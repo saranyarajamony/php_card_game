@@ -81,7 +81,7 @@ class DeckTest extends TestCase
                 "Unable to load class: SpanishCard"
             ],
             [
-                'TestFactory',
+                'CardViewer',
                 "The class doesn't match the return type"
             ]
 
