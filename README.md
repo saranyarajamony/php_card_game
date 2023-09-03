@@ -1,4 +1,4 @@
-# Technical_Sample
+# Technical 
 Sample project for PHP Card Game
 
 ## Guide to run the application
@@ -15,4 +15,9 @@ PhpUnit test
 ````````
 
 ## Accessing the Site
-*  <http://localhost/card_game>
+*  <http://localhost/php_card_game>
+
+## Technical Details
+ * Adhered to OOPS: Design Pattern & SOLID Principles
+ * PHPUNIT for running test cases
+ * test-results file has test result in JSON format
