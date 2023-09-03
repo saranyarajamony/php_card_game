@@ -1,0 +1,11 @@
+# Composer #
+# vendor directory #
+################################### 
+vendor
+composer.lock
+composer.phar
+
+# VisualStudioCode #
+.editorconfig
+
+
