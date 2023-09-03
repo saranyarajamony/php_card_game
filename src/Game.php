@@ -1,5 +1,7 @@
 <?php
+
 namespace CardGame;
+
 use CardGame\Interfaces\IGame;
 use CardGame\CardFactory;
 use CardGame\Util\Helpers;
@@ -29,13 +31,13 @@ class Game implements IGame
 	 */
 	public function start(): array
 	{
-	    // Instantiate Deck and call serve method to return the deck of cards
-        $cardClass = new CardFactory($this->cardType);		
-		if($cardClass instanceof ICard) 
-			$deck = (new Deck($cardClass))->serveCards();		
+		// Instantiate Deck and call serve method to return the deck of cards
+		$cardClass = new CardFactory($this->cardType);
+		if ($cardClass instanceof ICard)
+			$deck = (new Deck($cardClass))->serveCards();
 		else
-			throw new NoInterfaceFound("No interface found");	
-	
+			throw new NoInterfaceFound("No interface found");
+
 		//Randomly choose the cards from the shuffled deck for the player
 		$to_be_displayed = Helpers::getRandomElements($deck, 1 === random_int(0, 1));
 
@@ -58,7 +60,7 @@ class Game implements IGame
 	public function stop()
 	{
 	}
-    
+
 	/**
 	 * Check if the category of cards in hand belongs to normal / straight flush / flush pattern
 	 * @param array $array
@@ -66,28 +68,26 @@ class Game implements IGame
 	private function check_cards_category(array $array)
 	{
 		$message = 'The result is normal';
-		$m = ['A' => 1, 1=>10, 'J' => 11, 'Q' => 12, 'K' => 13];
+		$m = ['A' => 1, 1 => 10, 'J' => 11, 'Q' => 12, 'K' => 13];
 		foreach ($array as $a) {
 			$p = substr($a, -1);
-			$flush[] = $p;			
-			$straight[] = (($m[$a[0]]) ?? $a[0]); 
-       		
+			$flush[] = $p;
+			$straight[] = (($m[$a[0]]) ?? $a[0]);
 		}
-		if(count(array_unique($straight)) === 5) {		  
-          sort($straight);
-		  if($straight[0] == 1 && array_search(10, $straight)) {
-			$straight[0] = 14;
+		if (count(array_unique($straight)) === 5) {
 			sort($straight);
-		  }
-		  $straightFlush = Helpers::checkIfConsecutive($straight);
-		  if($straightFlush) {
-			return 'The result is a straight flush';
-		  }
+			if ($straight[0] == 1 && array_search(10, $straight)) {
+				$straight[0] = 14;
+				sort($straight);
+			}
+			$straightFlush = Helpers::checkIfConsecutive($straight);
+			if ($straightFlush) {
+				return 'The result is a straight flush';
+			}
 		}
-		if(count(array_unique($flush)) === 1) {
+		if (count(array_unique($flush)) === 1) {
 			return 'The result is a flush';
 		}
 		return $message;
-		
 	}
 }

@@ -1,9 +1,10 @@
 <?php
+
 namespace CardGame;
 
-abstract class CardBuilder 
+abstract class CardBuilder
 {
-     /**
+    /**
      * The available values.
      *
      * @var array
@@ -16,12 +17,9 @@ abstract class CardBuilder
      * @var array
      */
     protected $availablesuits;
-    
+
     /**
      * Define this method on a way how the card can be created using suits and values.
      */
     abstract function build();
-   
-    
 }
-

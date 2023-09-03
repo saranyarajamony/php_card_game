@@ -1,7 +1,8 @@
 <?php
+
 namespace CardGame;
 
-Class CardDesigner 
+class CardDesigner
 {
     /**
      * The card's value.
@@ -39,4 +40,3 @@ Class CardDesigner
         return $this->value . $this->suit;
     }
 }
-
